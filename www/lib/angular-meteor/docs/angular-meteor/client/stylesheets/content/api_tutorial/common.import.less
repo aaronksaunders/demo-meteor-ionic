@@ -1,0 +1,39 @@
+.tutorial-container, .api-container {
+  padding-top: 10px;
+
+  .main-content {
+
+    margin-bottom: 6rem;
+    font-size: 1.2rem;
+    p,
+    li,
+    h1,
+    h2,
+    h3,
+    hr {
+      max-width: 640px;
+    }
+
+    ol {
+      list-style: decimal outside;
+      margin-left: 2rem;
+    }
+
+    ul {
+      list-style: disc outside;
+      margin-left: 2rem;
+
+      &.first-get-started {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .tutorial-container {
+    .main-content {
+      font-size: 1rem;
+    }
+  }
+}

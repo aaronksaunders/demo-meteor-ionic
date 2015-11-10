@@ -1,0 +1,16 @@
+<ion-view view-title="Assessments">
+    <ion-content>
+
+        <ion-list>
+            <ion-item ng-repeat="assessment in assessments" 
+                      class="item-chat item-remove-animate item-avatar item-icon-right" 
+                      type="item-text-wrap">
+                <img ng-src="{{assessment.picture}}">
+                <h2>{{assessment.name}}</h2>
+                <p>{{assessment.lastMessage.text}}</p>
+                <span class="last-message-timestamp">{{assessment.lastMessage.timestamp}}</span>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

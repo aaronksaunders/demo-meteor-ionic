@@ -1,0 +1,12 @@
+{
+    "name": "HelloIonic",
+    "private": "true",
+    "devDependencies": {
+        "ionic": "driftyco/ionic-bower#1.1.1"
+    },
+    "dependencies": {
+        "angular-meteor": "~1.2.0",
+        "meteor-client-side": "~1.2.0",
+        "ngCordova": "~0.1.22-alpha"
+    }
+}

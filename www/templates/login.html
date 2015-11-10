@@ -1,0 +1,19 @@
+<ion-view title="Login">
+    <ion-nav-buttons side="right">
+        <button ng-click="login()" ng-disabled="!data.username || data.password.length === 0" class="button button-clear button-positive">Done</button>
+    </ion-nav-buttons>
+    <ion-content class="login">
+        <div class="text-center instructions">
+            Please enter username and password
+        </div>
+        <div class="list padding">
+            <label class="item item-input">
+                <input ng-model="data.username" on-return="login()" type="text" placeholder="Your User Name">
+            </label>
+            <label class="item item-input">
+                <input ng-model="data.password" on-return="login()" type="password">
+            </label>
+        </div>
+        <button ng-click="pickDate()">CLICK</button>
+    </ion-content>
+</ion-view>
