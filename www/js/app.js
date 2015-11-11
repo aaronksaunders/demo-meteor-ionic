@@ -57,7 +57,7 @@ function config($stateProvider, $urlRouterProvider) {
             views: {
                 'tab-schedule': {
                     templateUrl: 'templates/schedule.html',
-                    controller: 'ScheduleCtrl'
+                    controller: 'ScheduleCtrl as vm'
                 }
             }
         })
@@ -71,5 +71,5 @@ function config($stateProvider, $urlRouterProvider) {
             }
         });
 
-    $urlRouterProvider.otherwise('tab/assessments');
+    $urlRouterProvider.otherwise('tab/schedule');
 }

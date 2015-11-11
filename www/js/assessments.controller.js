@@ -1,7 +1,7 @@
 angular
-    .module('TutorApp')
-    .controller('AssessmentsCtrl', AssessmentsCtrl);
+  .module('TutorApp')
+  .controller('AssessmentsCtrl', AssessmentsCtrl);
 
 function AssessmentsCtrl($scope, $cordovaDatePicker) {
-    $scope.assessments = $scope.$meteorCollection(Assessments, false);
+  $scope.assessments = $scope.$meteorCollection(Assessments, false);
 }
