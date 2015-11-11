@@ -1,5 +1,5 @@
 angular
-    .module('Whatsapp')
+    .module('TutorApp')
     .controller('LoginCtrl', LoginCtrl);
 
 function LoginCtrl($scope, $cordovaDatePicker) {

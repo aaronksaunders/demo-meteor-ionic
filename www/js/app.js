@@ -6,7 +6,7 @@
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
 angular
-    .module('Whatsapp', [
+    .module('TutorApp', [
         'ionic',
         'angular-meteor',
         'ngCordova'
@@ -52,12 +52,21 @@ function config($stateProvider, $urlRouterProvider) {
             abstract: true,
             templateUrl: 'templates/tabs.html'
         })
+        .state('tab.schedule', {
+            url: '/schedule',
+            views: {
+                'tab-schedule': {
+                    templateUrl: 'templates/schedule.html',
+                    controller: 'ScheduleCtrl'
+                }
+            }
+        })
         .state('tab.assessments', {
             url: '/assessments',
             views: {
                 'tab-assessments': {
                     templateUrl: 'templates/assessments.html',
-                    controller: 'AssessmentsCtrl as vm'
+                    controller: 'AssessmentsCtrl'
                 }
             }
         });
