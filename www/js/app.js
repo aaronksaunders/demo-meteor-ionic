@@ -74,6 +74,15 @@ function config($stateProvider, $urlRouterProvider) {
           controller: 'AssessmentsCtrl'
         }
       }
+    })
+    .state('tab.settings', {
+      url: '/settings',
+      views: {
+        'tab-settings': {
+          templateUrl: 'templates/settings.html',
+          controller: 'SettingsCtrl as vm'
+        }
+      }
     });
 
   $urlRouterProvider.otherwise('tab/schedule');

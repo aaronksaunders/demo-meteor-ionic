@@ -1,12 +1,7 @@
 <ion-view title="Login">
 
     <ion-nav-bar class="bar-stable nav-title-slide-ios7 bar-positive ">
-        <ion-nav-buttons side="right">
-            <button ng-click="vm.loginBtnClicked()" ng-disabled="!data.username || data.password.length === 0" class="button button-clear button-positive">Done</button>
-        </ion-nav-buttons>
     </ion-nav-bar>
-
-
 
     <ion-content class="login padding item">
         <div class="text-center instructions">
@@ -20,7 +15,7 @@
                 <input ng-model="vm.credentials.password" type="password">
             </label>
         </div>
-        <button class="button" ng-click="vm.loginBtnClicked()">Login</button>
-        <button class="button" ng-click="vm.createAccountBtnClicked()">Create Account</button>
+        <button class="button" ng-disabled="!vm.credentials.email || vm.credentials.password.length === 0" ng-click="vm.loginBtnClicked()">Login</button>
+        <button class="button" ng-disabled="!vm.credentials.email || vm.credentials.password.length === 0" ng-click="vm.createAccountBtnClicked()">Create Account</button>
     </ion-content>
 </ion-view>

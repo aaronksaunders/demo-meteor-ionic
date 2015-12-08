@@ -3,7 +3,7 @@ angular
   .controller('LoginCtrl', ['$meteor', '$scope', '$state', function ($meteor, $scope, $state) {
 
       var vm = this;
-      vm.assessments = $scope.$meteorCollection(Assessments, false);
+
 
       /**
        * [[Description]]
