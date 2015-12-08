@@ -1,6 +1,6 @@
 # demo-meteor-ionic 
 
-#packages needed for user accounts
+## Packages needed for user accounts
 
 ```Console
 bower install accounts-base-client-side
@@ -26,7 +26,7 @@ required info-plist change
 
 ## When Running on Devices Configure Database
 
-configure the ip address of server in `www/lib/meteor-client-side/meteor-runtime-config.js` local host wont work when running omn device
+configure the ip address of server in `www/lib/meteor-client-side/meteor-runtime-config.js` local host wont work when running on device
 
 ```Javascript
 __meteor_runtime_config__ = {};
