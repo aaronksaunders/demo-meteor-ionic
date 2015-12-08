@@ -1,19 +1,26 @@
 <ion-view title="Login">
-    <ion-nav-buttons side="right">
-        <button ng-click="login()" ng-disabled="!data.username || data.password.length === 0" class="button button-clear button-positive">Done</button>
-    </ion-nav-buttons>
-    <ion-content class="login">
+
+    <ion-nav-bar class="bar-stable nav-title-slide-ios7 bar-positive ">
+        <ion-nav-buttons side="right">
+            <button ng-click="vm.loginBtnClicked()" ng-disabled="!data.username || data.password.length === 0" class="button button-clear button-positive">Done</button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+
+
+
+    <ion-content class="login padding item">
         <div class="text-center instructions">
             Please enter username and password
         </div>
-        <div class="list padding">
+        <div class="list">
             <label class="item item-input">
-                <input ng-model="data.username" on-return="login()" type="text" placeholder="Your User Name">
+                <input ng-model="vm.credentials.email" type="text" placeholder="Your User Name">
             </label>
             <label class="item item-input">
-                <input ng-model="data.password" on-return="login()" type="password">
+                <input ng-model="vm.credentials.password" type="password">
             </label>
         </div>
-        <button ng-click="pickDate()">CLICK</button>
+        <button class="button" ng-click="vm.loginBtnClicked()">Login</button>
+        <button class="button" ng-click="vm.createAccountBtnClicked()">Create Account</button>
     </ion-content>
 </ion-view>

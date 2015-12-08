@@ -6,70 +6,75 @@
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
 angular
-    .module('TutorApp', [
-        'ionic',
-        'angular-meteor',
-        'ngCordova'
+  .module('TutorApp', [
+    'angular-meteor',
+    'ionic',
+    'ngCordova'
   ])
-    .run(run)
-    .config(config);
+  .run(run)
+  .config(config);
 
 function run($ionicPlatform, $rootScope, $state) {
-    $ionicPlatform.ready(function () {
-        // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-        // for form inputs)
-        if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
-            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-            cordova.plugins.Keyboard.disableScroll(true);
+  $ionicPlatform.ready(function () {
+    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+    // for form inputs)
+    if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
+      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+      cordova.plugins.Keyboard.disableScroll(true);
 
-        }
-        if (window.StatusBar) {
-            // org.apache.cordova.statusbar required
-            StatusBar.styleDefault();
-        }
+    }
+    if (window.StatusBar) {
+      // org.apache.cordova.statusbar required
+      StatusBar.styleDefault();
+    }
+  });
+
+
+  $rootScope.$on('$stateChangeError',
+    function (event, toState, toParams, fromState, fromParams, error) {
+      // We can catch the error thrown when the $requireUser promise is rejected
+      // and redirect the user back to the main page
+      if (error === 'AUTH_REQUIRED') {
+        $state.go('login');
+      }
     });
-
-
-    $rootScope.$on('$stateChangeError',
-        function (event, toState, toParams, fromState, fromParams, error) {
-            // We can catch the error thrown when the $requireUser promise is rejected
-            // and redirect the user back to the main page
-            if (error === 'AUTH_REQUIRED') {
-                $state.go('login');
-            }
-        });
 }
 
 function config($stateProvider, $urlRouterProvider) {
-    $stateProvider
-        .state('login', {
-            url: '/login',
-            templateUrl: 'templates/login.html',
-            controller: 'LoginCtrl'
-        })
-        .state('tab', {
-            url: '/tab',
-            abstract: true,
-            templateUrl: 'templates/tabs.html'
-        })
-        .state('tab.schedule', {
-            url: '/schedule',
-            views: {
-                'tab-schedule': {
-                    templateUrl: 'templates/schedule.html',
-                    controller: 'ScheduleCtrl as vm'
-                }
-            }
-        })
-        .state('tab.assessments', {
-            url: '/assessments',
-            views: {
-                'tab-assessments': {
-                    templateUrl: 'templates/assessments.html',
-                    controller: 'AssessmentsCtrl'
-                }
-            }
-        });
+  $stateProvider
+    .state('login', {
+      url: '/login',
+      templateUrl: 'templates/login.html',
+      controller: 'LoginCtrl as vm'
+    })
+    .state('tab', {
+      url: '/tab',
+      abstract: true,
+      templateUrl: 'templates/tabs.html',
+      resolve: {
+        user: ["$meteor", function ($meteor) {
+          return $meteor.requireUser()
+        }]
+      }
+    })
+    .state('tab.schedule', {
+      url: '/schedule',
+      views: {
+        'tab-schedule': {
+          templateUrl: 'templates/schedule.html',
+          controller: 'ScheduleCtrl as vm'
+        }
+      }
+    })
+    .state('tab.assessments', {
+      url: '/assessments',
+      views: {
+        'tab-assessments': {
+          templateUrl: 'templates/assessments.html',
+          controller: 'AssessmentsCtrl'
+        }
+      }
+    });
 
-    $urlRouterProvider.otherwise('tab/schedule');
+  $urlRouterProvider.otherwise('tab/schedule');
 }

@@ -1,12 +1,14 @@
 {
-    "name": "TutorApp",
-    "private": "true",
-    "devDependencies": {
-        "ionic": "driftyco/ionic-bower#1.1.1"
-    },
-    "dependencies": {
-        "angular-meteor": "~1.2.0",
-        "meteor-client-side": "~1.2.0",
-        "ngCordova": "~0.1.22-alpha"
-    }
+  "name": "TutorApp",
+  "private": "true",
+  "devDependencies": {
+    "ionic": "driftyco/ionic-bower#1.1.1"
+  },
+  "dependencies": {
+    "angular-meteor": "~1.2.0",
+    "meteor-client-side": "~1.2.0",
+    "accounts-base-client-side": "*",
+    "accounts-password-client-side": "*",
+    "ngCordova": "~0.1.22-alpha"
+  }
 }

@@ -1,5 +1,14 @@
 # demo-meteor-ionic 
 
+#packages needed for user accounts
+
+```Console
+bower install accounts-base-client-side
+bower install accounts-password-client-side
+bower install angular-meteor
+bower install meteor-client-side
+```
+
 Project to familiarize myself with integrating Ionic Framework with Meteor; this code runs in emulator and on device.
 I also just added a plugin to make sure the extra stuff works fine.
 
